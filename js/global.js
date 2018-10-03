@@ -1,19 +1,34 @@
-$(document).ready(function() {
-  var slideArr = [];
+$(document).ready(function () {
   var img = document.getElementsByClassName('slider__img');
-  slideArr.push(img);
-  var currentImg = document.getElementsByClassName('active')
 
+  var slideArr = Object.keys(img).map(function (key) {
+    return img[key];
+  });
+  // console.log(slideArr);
 
-  $('.button--prev').click(function() {
+  var currentImg = document.getElementsByClassName('current');
+  var slideIndex = 0;
+
+  $('.button--prev').click(function () {
     prevSlide();
   })
 
-  $('.button--next').click(function() {
+  $('.button--next').click(function () {
     nextSlide();
   })
 
-  function nextSlide() {
+  function prevSlide() {
 
   }
+
+  function nextSlide() {
+    if (currentImg < slideArr[slideArr.length]) {
+      slideArr[currentImg + 1];
+      currentImg += 1;
+    } else if (currentImg == slideArr[slideArr.length - 1]) {
+      slideArr[0]
+    }
+  }
+
+
 })

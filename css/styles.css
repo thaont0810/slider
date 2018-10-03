@@ -63,6 +63,6 @@ section {
 .slider li {
   display: none;
 }
-.slider li.active {
+.slider li.current {
   display: block;
 }
